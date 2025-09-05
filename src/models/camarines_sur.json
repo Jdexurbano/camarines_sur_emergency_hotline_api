@@ -1,0 +1,84 @@
+{
+  "districts": [
+    {
+      "id": 1,
+      "name": "1st District",
+      "municipalities": [
+        {
+          "id": 1,
+          "name": "Cabusao",
+          "hotline": "123-4567"
+        },
+        {
+          "id": 2,
+          "name": "Sipocot",
+          "hotline": "123-4567"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "2nd District",
+      "municipalities": [
+        {
+          "id": 1,
+          "name": "Gainza",
+          "hotline": "123-4567"
+        },
+        {
+          "id": 2,
+          "name": "Pamplona",
+          "hotline": "123-4567"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "3rd District",
+      "municipalities": [
+        {
+          "id": 1,
+          "name": "Camaligan",
+          "hotline": "123-4567"
+        },
+        {
+          "id": 2,
+          "name": "Canaman",
+          "hotline": "123-4567"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "4th District",
+      "municipalities": [
+        {
+          "id": 1,
+          "name": "Caramoan",
+          "hotline": "123-4567"
+        },
+        {
+          "id": 2,
+          "name": "Lagonoy",
+          "hotline": "123-4567"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "5th District",
+      "municipalities": [
+        {
+          "id": 1,
+          "name": "Baao",
+          "hotline": "123-4567"
+        },
+        {
+          "id": 2,
+          "name": "Nabua",
+          "hotline": "123-4567"
+        }
+      ]
+    }
+  ]
+}
