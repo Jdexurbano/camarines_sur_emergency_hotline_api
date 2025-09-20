@@ -6,17 +6,17 @@ export const api_handler = (req: Request, res: Response) => {
   //get the query parameters
   const { district, municipality } = req.query;
 
-  let result: Municipality[] = []; //array to store the query data
-
   try {
     //query all the municipality
     let municipalities = data.districts.flatMap(
       (d) => d.municipalities.map((m) => ({ ...m, district: d.name })) //attach the district name to each municipaltiy
     );
 
+    let result: Municipality[] = municipalities; //array to store the query data
+
     //if only district is being search
-    if (district && !municipality) {
-      result = municipalities.filter(
+    if (district) {
+      result = result.filter(
         (municipality) =>
           municipality.district.toLowerCase() ===
           district.toString().toLowerCase()
@@ -24,28 +24,24 @@ export const api_handler = (req: Request, res: Response) => {
     }
 
     //if municipality is being search
-    else if (municipality && !district) {
-      result = municipalities.filter(
+    if (municipality) {
+      result = result.filter(
         (district) =>
           district.name.toLowerCase() === municipality.toString().toLowerCase()
       );
     }
 
-    //if both municipality and district is being search
-    else if (district && municipality) {
-      result = municipalities.filter(
-        (data) =>
-          data.district.toLowerCase() === district.toString().toLowerCase() &&
-          data.name.toLowerCase() === municipality.toString().toLowerCase()
-      );
-    } else {
-      res.status(200).json(municipalities);
+    if (result.length === 0) {
+      return res.status(404).json({
+        message: "No Data Available",
+      });
     }
 
-    result.length === 0
-      ? res.status(404).json({ message: "No Data Available" })
-      : res.status(200).json(result);
+    return res.status(200).json(result);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json({
+      error: "Invalid Request",
+      details: (error as Error).message,
+    });
   }
 };
